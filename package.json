@@ -1,0 +1,26 @@
+{
+  "name": "igstory",
+  "version": "0.0.1",
+  "description": "test insta",
+  "main": "main/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp build && electron ."
+  },
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/valgit/igstory.git"
+  },
+  "author": "vbr",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "instagram-private-api": "^0.6.7"
+  },
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "gulp": "^3.9.1",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-pug": "^3.3.0"
+  }
+}
