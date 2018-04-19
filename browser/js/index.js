@@ -34,6 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  ipcRenderer.on('feedList', (evt, feeds_) => {
+    if (!window.feeds.length || window.feeds[0].items[0].id !== feeds_[0].items[0].id) {
+      window.feeds = feeds_
+      renderFeedList(window.feeds)
+    }
+  });
+
   ipcRenderer.on('chat', (evt, chat_) => {
     let isNewMessage = (
       !window.chat.items || !window.chat.items.length ||
@@ -115,3 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
   getLoggedInUser();
   getChatList();
 });
+
+function getFeedList () {
+  ipcRenderer.send('getFeedList');
+}

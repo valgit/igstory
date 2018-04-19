@@ -124,3 +124,10 @@ exports.getLoggedInUser = function (session) {
     });
   });
 }
+
+exports.getFeedList = function (session) {
+  return new Promise((resolve, reject) => {
+    var feed = new Client.Feed.UserStory(session, 10);
+    feed.get().then(resolve).catch(reject)
+  })
+}

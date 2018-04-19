@@ -48,6 +48,14 @@ function createWindow () {
   mainWindow.on('closed', () => mainWindow = null)
 }
 
+function getFeedList () {
+  instagram.getFeedList(session).then((feeds) => {
+    mainWindow.webContents.send('feedList', feeds)
+
+    setTimeout(getFeedList, pollingInterval);
+  }).catch(() => setTimeout(getFeedList, RATE_LIMIT_DELAY))
+}
+
 function getChatList () {
   instagram.getChatList(session).then((chats) => {
     mainWindow.webContents.send('chatList', chats)
@@ -131,6 +139,8 @@ electron.ipcMain.on('getLoggedInUser', (evt) => {
 })
 
 electron.ipcMain.on('getChatList', getChatList)
+
+electron.ipcMain.on('getFeedList', getFeedList)
 
 electron.ipcMain.on('getChat', getChat)
 

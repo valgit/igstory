@@ -6,6 +6,7 @@ const MSG_INPUT_SELECTOR = '.new-message form textarea';
 const URL_REGEX = new RegExp(/(http:\/\/|https:\/\/)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/, 'i');
 
 window.chats = [];
+window.feeds = [];
 window.chatsHash = {};
 window.unreadChats = {};
 window.chat = {};

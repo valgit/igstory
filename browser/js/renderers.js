@@ -256,3 +256,13 @@ function renderUnfollowers (users) {
 
   showInViewer(ul);
 }
+
+function renderFeedListItem (username, msgPreview, thumbnail, id) {
+  var li = document.createElement('li');
+  li.classList.add('col-12', 'p-3');
+  li.appendChild(dom(`<div><img class="thumb" src="${thumbnail}"></div>`));
+  li.appendChild(dom(`<div class="username ml-3 d-none d-sm-inline-block"><b>${username}</b><br>${msgPreview}</div>`));
+  if (id) li.setAttribute("id", `feedlist-${id}`);
+
+  return li;
+}
